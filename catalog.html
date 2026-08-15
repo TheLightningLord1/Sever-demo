@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — SEVER</title>
+  <meta name="description" content="Каталог одежды SEVER. Худи, футболки и аксессуары из плотного хлопка.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-nav">
+      <a href="index.html" class="logo">SEVER</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Главная</a></li>
+        <li><a href="catalog.html" class="nav-link active">Каталог</a></li>
+        <li><a href="index.html#about" class="nav-link">О бренде</a></li>
+      </ul>
+
+      <button class="cart-btn" onclick="toggleCart(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span>Корзина</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+
+      <button class="mobile-menu-btn" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="nav-link">Главная</a>
+    <a href="catalog.html" class="nav-link active">Каталог</a>
+    <a href="index.html#about" class="nav-link">О бренде</a>
+    <button class="cart-btn" onclick="toggleCart(true)" style="margin-top:20px;">
+      <span>Корзина</span>
+      <span class="cart-count" id="cart-count-mobile">0</span>
+    </button>
+  </nav>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Бесплатная доставка от 5000 ₽</span>
+      <span class="marquee-item">Лимитированные партии</span>
+      <span class="marquee-item">Плотный хлопок от 240 g/m²</span>
+      <span class="marquee-item">Сшито в России</span>
+      <span class="marquee-item">Бесплатная доставка от 5000 ₽</span>
+      <span class="marquee-item">Лимитированные партии</span>
+      <span class="marquee-item">Плотный хлоток от 240 g/m²</span>
+      <span class="marquee-item">Сшито в России</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="container section" style="padding-top:40px;">
+    <div class="catalog-hero">
+      <h1 class="catalog-hero-title">Каталог</h1>
+      <p class="catalog-hero-subtitle">8 позиций в коллекции SS26. Каждая вещь — в единственном тираже.</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="catalog-filters">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">Все</button>
+      <button class="filter-btn" onclick="filterCategory('hoodies', this)">Худи и свитшоты</button>
+      <button class="filter-btn" onclick="filterCategory('tees', this)">Футболки</button>
+      <button class="filter-btn" onclick="filterCategory('access', this)">Аксессуары</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="products-grid" id="catalog-products-grid"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">SEVER</a>
+          <p class="footer-desc">Одежда, которая не кричит. Лимитированные дропы, плотный хлопок и локальное производство в России.</p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="index.html#about">О бренде</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Категории</h4>
+          <ul class="footer-links">
+            <li><a href="catalog.html">Худи и свитшоты</a></li>
+            <li><a href="catalog.html">Футболки</a></li>
+            <li><a href="catalog.html">Аксессуары</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@sever.ru">hello@sever.ru</a></li>
+            <li><a href="https://t.me/severbrand" target="_blank">Telegram</a></li>
+            <li><a href="#" onclick="showToast('Скоро откроемся'); return false;">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2026 SEVER. Все права защищены.</div>
+        <div class="footer-dev">💻 Разработка сайта — Кирилл | <a href="https://t.me/НИК" target="_blank">@НИК</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3 class="cart-title">Ваша корзина</h3>
+      <button class="cart-close-btn" onclick="toggleCart(false)">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Итого:</span>
+        <span id="cart-total-price">0 ₽</span>
+      </div>
+      <button class="btn" style="width: 100%;" onclick="handleCheckout()">Перейти к оформлению</button>
+    </div>
+  </aside>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="product-modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="product-modal">
+      <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      <div class="modal-img-wrap" id="modal-img-container"></div>
+      <div class="modal-content">
+        <div class="modal-category" id="modal-category">Категория</div>
+        <h2 class="modal-title" id="modal-title">Название товара</h2>
+        <div class="modal-price" id="modal-price">0 ₽</div>
+        <p class="modal-desc" id="modal-desc">Описание товара...</p>
+        <div class="modal-features" id="modal-features"></div>
+
+        <div class="size-selector">
+          <span class="size-label">Выберите размер:</span>
+          <div class="size-options">
+            <button class="size-btn active" onclick="selectSize(this)">S</button>
+            <button class="size-btn" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+        </div>
+
+        <button class="btn" id="modal-add-btn" style="margin-top: auto;">Добавить в корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" aria-label="Наверх">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
